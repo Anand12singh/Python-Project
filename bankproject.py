@@ -1,34 +1,36 @@
+
 import sys
 class customer:
-    bankname='anandbank'
-    def __init__(self,name,balance=0.0):
+    bankname="minibank"
+    def _init_(self,name,balance=0.0):
         self.name=name
         self.balance=balance
-    def deposite(self,amt):
+    def deposit(self,amt):
         self.balance=self.balance+amt
-        print('balance after deposite',self.balance)
-    def widraw(self,amt):
+        print("Balance after deposit: ",self.balance)
+    def withdraw(self,amt):
         if amt>self.balance:
-            print('infuicent balance found...annot perform this operation')
+            print("Isufficient Funds.. Cannot perform this operation")
             sys.exit()
             self.balance=self.balance-amt
-            print('balance after widraw',self.balanc)
-            print('welcome to',customer.bankname)
-            name=input('enter your name; ')
+            print("Balance after withdraw:",self.balance)
+        print("Welcome to",customer.bankname)
+        name=input("Enter Your Name:")
+        c=customer(name)
         while True:
-            print('d-Deposit \nw-witdraw\ne-exist')
-            option=input('choose option')
+            print("d-Deposit \nw-Withdraw \ne-exit")
+            option=input("Choose Your Option")
             if option=='d' or option=='D':
-                amt=float(input('enter amont'))
+                amt=float(input("Enter your amount:"))
                 c.deposit(amt)
             elif option=='w' or option=='W':
-                amt=float(input('enter amont'))
-                c.widraw(amt)
+                amt=float(input("Enter amount:"))
+                c.withdraw(amt)
             elif option=='e' or option=='E':
-                print('thank for banking')
+                print("thanks For Banking")
                 sys.exit()
-
             else:
-                print('INVALID  OPTION .. PLZ CHOOSE VALID OPTION')
-a1=customer()
-print(a1)
+                print("Invalid Option.. Plz valid option")
+a=customer('anand')
+a.deposit(4000)
+a.withdraw(555)
